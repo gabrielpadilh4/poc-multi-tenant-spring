@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: multi-tenant-application
+  profiles:
+    active: dev
+  management:
+    endpoint:
+      web:
+        exposure:
+          include: "*"
+      health:
+        probes:
+          enabled: true
+          add-additional-paths: true
+  springdoc:
+    version: 1.0.0
+    title: Multi Tenant Application Test
+    description: Simple API used to test a poc related to multi-tenant app
+    packagesToScan: com.gabrielpadilh4.multitenant
+    paths-to-match: [ '/api/v1/**' ]
+    swagger-ui:
+      use-root-path: true
+
+logging:
+  level:
+    org:
+      springframework:
+        data: debug
+      hibernate:
+        sql: debug
